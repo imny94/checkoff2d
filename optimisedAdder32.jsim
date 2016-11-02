@@ -1,0 +1,1128 @@
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\nominal.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\stdcell.jsim"
+//.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\lab3adder.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
+//.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_6ns.jsim"
+
+.subckt CLC A B Cin G P S
+//Xandp A B Gp nor2
+//Xand Gp G inverter
+//Xorp A B Pp nand2
+//Xor Pp P inverter
+XAprime A Ap inverter
+XBprime B Bp inverter
+Xand Ap Bp G nor2
+Xor Ap Bp P nand2
+Xor3 A B Cin S xor3
+.ends
+
+.subckt xor3 A B C out
+Xxor1 A B temp xor2
+Xxor2 temp C out xor2
+.ends
+
+.subckt nor4 a[3:0] out
+XnorTemp a[2:0] temp nor3
+Xnor temp a3 out nor2
+.ends
+
+.subckt and5 a[4:0] out
+Xinvert a[4:0] ap[4:0] inverter
+XandTemp ap[3:0] temp nor4
+Xand temp ap4 out nor2
+.ends
+
+.subckt or5 a0 a1 a2 a3 a4 out
+XorTemp a0 a1 a2 a3 temp or4
+Xor temp a4 out or2
+.ends
+
+.subckt nor5 a[4:0] out
+XnorTemp a[3:0] temp nor4
+Xnor temp a4 out nor2
+.ends
+
+.subckt and6 a[5:0] out
+Xinvert a[5:0] ap[5:0] inverter
+XandTemp ap[4:0] temp nor5
+Xand temp ap5 out nor2
+.ends
+
+.subckt or6 a0 a1 a2 a3 a4 a5 out
+XorTemp a0 a1 a2 a3 a4 temp or5
+Xor temp a5 out or2
+.ends
+
+.subckt nor6 a[5:0] out
+XnorTemp a[4:0] temp nor5
+Xnor temp a5 out nor2
+.ends
+
+.subckt and7 a[6:0] out
+Xinvert a[6:0] ap[6:0] inverter
+XandTemp ap[5:0] temp nor6
+Xand temp ap6 out nor2
+.ends
+
+.subckt or7 a0 a1 a2 a3 a4 a5 a6 out
+XorTemp a0 a1 a2 a3 a4 a5 temp or6
+Xor temp a6 out or2
+.ends
+
+.subckt nor7 a[6:0] out
+XnorTemp a[5:0] temp nor6
+Xnor temp a6 out nor2
+.ends
+
+.subckt and8 a[7:0] out
+Xinvert a[7:0] ap[7:0] inverter
+XandTemp ap[6:0] temp nor7
+Xand temp ap7 out nor2
+.ends
+
+.subckt or8 a0 a1 a2 a3 a4 a5 a6 a7 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 temp or7
+Xor temp a7 out or2
+.ends
+
+.subckt nor8 a[7:0] out
+XnorTemp a[6:0] temp nor7
+Xnor temp a7 out nor2
+.ends
+
+.subckt and9 a[8:0] out
+Xinvert a[8:0] ap[8:0] inverter
+XandTemp ap[7:0] temp nor8
+Xand temp ap8 out nor2
+.ends
+
+.subckt or9 a0 a1 a2 a3 a4 a5 a6 a7 a8 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 temp or8
+Xor temp a8 out or2
+.ends
+
+.subckt nor9 a[8:0] out
+XnorTemp a[7:0] temp nor8
+Xnor temp a8 out nor2
+.ends
+
+.subckt and10 a[9:0] out
+Xinvert a[9:0] ap[9:0] inverter
+XandTemp ap[8:0] temp nor9
+Xand temp ap9 out nor2
+.ends
+
+.subckt or10 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 temp or9
+Xor temp a9 out or2
+.ends
+
+.subckt nor10 a[9:0] out
+XnorTemp a[8:0] temp nor9
+Xnor temp a9 out nor2
+.ends
+
+.subckt and11 a[10:0] out
+Xinvert a[10:0] ap[10:0] inverter
+XandTemp ap[9:0] temp nor10
+Xand temp ap10 out nor2
+.ends
+
+.subckt or11 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 temp or10
+Xor temp a10 out or2
+.ends
+
+.subckt nor11 a[10:0] out
+XnorTemp a[9:0] temp nor10
+Xnor temp a10 out nor2
+.ends
+
+.subckt and12 a[11:0] out
+Xinvert a[11:0] ap[11:0] inverter
+XandTemp ap[10:0] temp nor11
+Xand temp ap11 out nor2
+.ends
+
+.subckt or12 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 temp or11
+Xor temp a11 out or2
+.ends
+
+.subckt nor12 a[11:0] out
+XnorTemp a[10:0] temp nor11
+Xnor temp a11 out nor2
+.ends
+
+.subckt and13 a[12:0] out
+Xinvert a[12:0] ap[12:0] inverter
+XandTemp ap[11:0] temp nor12
+Xand temp ap12 out nor2
+.ends
+
+.subckt or13 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 temp or12
+Xor temp a12 out or2
+.ends
+
+.subckt nor13 a[12:0] out
+XnorTemp a[11:0] temp nor12
+Xnor temp a12 out nor2
+.ends
+
+.subckt and14 a[13:0] out
+Xinvert a[13:0] ap[13:0] inverter
+XandTemp ap[12:0] temp nor13
+Xand temp ap13 out nor2
+.ends
+
+.subckt or14 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 temp or13
+Xor temp a13 out or2
+.ends
+
+.subckt nor14 a[13:0] out
+XnorTemp a[12:0] temp nor13
+Xnor temp a13 out nor2
+.ends
+
+.subckt and15 a[14:0] out
+Xinvert a[14:0] ap[14:0] inverter
+XandTemp ap[13:0] temp nor14
+Xand temp ap14 out nor2
+.ends
+
+.subckt or15 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 temp or14
+Xor temp a14 out or2
+.ends
+
+.subckt nor15 a[14:0] out
+XnorTemp a[13:0] temp nor14
+Xnor temp a14 out nor2
+.ends
+
+.subckt and16 a[15:0] out
+Xinvert a[15:0] ap[15:0] inverter
+XandTemp ap[14:0] temp nor15
+Xand temp ap15 out nor2
+.ends
+
+.subckt or16 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 temp or15
+Xor temp a15 out or2
+.ends
+
+.subckt nor16 a[15:0] out
+XnorTemp a[14:0] temp nor15
+Xnor temp a15 out nor2
+.ends
+
+.subckt and17 a[16:0] out
+Xinvert a[16:0] ap[16:0] inverter
+XandTemp ap[15:0] temp nor16
+Xand temp ap16 out nor2
+.ends
+
+.subckt or17 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 temp or16
+Xor temp a16 out or2
+.ends
+
+.subckt nor17 a[16:0] out
+XnorTemp a[15:0] temp nor16
+Xnor temp a16 out nor2
+.ends
+
+.subckt and18 a[17:0] out
+Xinvert a[17:0] ap[17:0] inverter
+XandTemp ap[16:0] temp nor17
+Xand temp ap17 out nor2
+.ends
+
+.subckt or18 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 temp or17
+Xor temp a17 out or2
+.ends
+
+.subckt nor18 a[17:0] out
+XnorTemp a[16:0] temp nor17
+Xnor temp a17 out nor2
+.ends
+
+.subckt and19 a[18:0] out
+Xinvert a[18:0] ap[18:0] inverter
+XandTemp ap[17:0] temp nor18
+Xand temp ap18 out nor2
+.ends
+
+.subckt or19 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 temp or18
+Xor temp a18 out or2
+.ends
+
+.subckt nor19 a[18:0] out
+XnorTemp a[17:0] temp nor18
+Xnor temp a18 out nor2
+.ends
+
+.subckt and20 a[19:0] out
+Xinvert a[19:0] ap[19:0] inverter
+XandTemp ap[18:0] temp nor19
+Xand temp ap19 out nor2
+.ends
+
+.subckt or20 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 temp or19
+Xor temp a19 out or2
+.ends
+
+.subckt nor20 a[19:0] out
+XnorTemp a[18:0] temp nor19
+Xnor temp a19 out nor2
+.ends
+
+.subckt and21 a[20:0] out
+Xinvert a[20:0] ap[20:0] inverter
+XandTemp ap[19:0] temp nor20
+Xand temp ap20 out nor2
+.ends
+
+.subckt or21 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 temp or20
+Xor temp a20 out or2
+.ends
+
+.subckt nor21 a[20:0] out
+XnorTemp a[19:0] temp nor20
+Xnor temp a20 out nor2
+.ends
+
+.subckt and22 a[21:0] out
+Xinvert a[21:0] ap[21:0] inverter
+XandTemp ap[20:0] temp nor21
+Xand temp ap21 out nor2
+.ends
+
+.subckt or22 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 temp or21
+Xor temp a21 out or2
+.ends
+
+.subckt nor22 a[21:0] out
+XnorTemp a[20:0] temp nor21
+Xnor temp a21 out nor2
+.ends
+
+.subckt and23 a[22:0] out
+Xinvert a[22:0] ap[22:0] inverter
+XandTemp ap[21:0] temp nor22
+Xand temp ap22 out nor2
+.ends
+
+.subckt or23 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 temp or22
+Xor temp a22 out or2
+.ends
+
+.subckt nor23 a[22:0] out
+XnorTemp a[21:0] temp nor22
+Xnor temp a22 out nor2
+.ends
+
+.subckt and24 a[23:0] out
+Xinvert a[23:0] ap[23:0] inverter
+XandTemp ap[22:0] temp nor23
+Xand temp ap23 out nor2
+.ends
+
+.subckt or24 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 temp or23
+Xor temp a23 out or2
+.ends
+
+.subckt nor24 a[23:0] out
+XnorTemp a[22:0] temp nor23
+Xnor temp a23 out nor2
+.ends
+
+.subckt and25 a[24:0] out
+Xinvert a[24:0] ap[24:0] inverter
+XandTemp ap[23:0] temp nor24
+Xand temp ap24 out nor2
+.ends
+
+.subckt or25 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 temp or24
+Xor temp a24 out or2
+.ends
+
+.subckt nor25 a[24:0] out
+XnorTemp a[23:0] temp nor24
+Xnor temp a24 out nor2
+.ends
+
+.subckt and26 a[25:0] out
+Xinvert a[25:0] ap[25:0] inverter
+XandTemp ap[24:0] temp nor25
+Xand temp ap25 out nor2
+.ends
+
+.subckt or26 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 temp or25
+Xor temp a25 out or2
+.ends
+
+.subckt nor26 a[25:0] out
+XnorTemp a[24:0] temp nor25
+Xnor temp a25 out nor2
+.ends
+
+.subckt and27 a[26:0] out
+Xinvert a[26:0] ap[26:0] inverter
+XandTemp ap[25:0] temp nor26
+Xand temp ap26 out nor2
+.ends
+
+.subckt or27 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 temp or26
+Xor temp a26 out or2
+.ends
+
+.subckt nor27 a[26:0] out
+XnorTemp a[25:0] temp nor26
+Xnor temp a26 out nor2
+.ends
+
+.subckt and28 a[27:0] out
+Xinvert a[27:0] ap[27:0] inverter
+XandTemp ap[26:0] temp nor27
+Xand temp ap27 out nor2
+.ends
+
+.subckt or28 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 temp or27
+Xor temp a27 out or2
+.ends
+
+.subckt nor28 a[27:0] out
+XnorTemp a[26:0] temp nor27
+Xnor temp a27 out nor2
+.ends
+
+.subckt and29 a[28:0] out
+Xinvert a[28:0] ap[28:0] inverter
+XandTemp ap[27:0] temp nor28
+Xand temp ap28 out nor2
+.ends
+
+.subckt or29 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 temp or28
+Xor temp a28 out or2
+.ends
+
+.subckt nor29 a[28:0] out
+XnorTemp a[27:0] temp nor28
+Xnor temp a28 out nor2
+.ends
+
+.subckt and30 a[29:0] out
+Xinvert a[29:0] ap[29:0] inverter
+XandTemp ap[28:0] temp nor29
+Xand temp ap29 out nor2
+.ends
+
+.subckt or30 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 temp or29
+Xor temp a29 out or2
+.ends
+
+.subckt nor30 a[29:0] out
+XnorTemp a[28:0] temp nor29
+Xnor temp a29 out nor2
+.ends
+
+.subckt and31 a[30:0] out
+Xinvert a[30:0] ap[30:0] inverter
+XandTemp ap[29:0] temp nor30
+Xand temp ap30 out nor2
+.ends
+
+.subckt or31 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 temp or30
+Xor temp a30 out or2
+.ends
+
+.subckt nor31 a[30:0] out
+XnorTemp a[29:0] temp nor30
+Xnor temp a30 out nor2
+.ends
+
+.subckt and32 a[31:0] out
+Xinvert a[31:0] ap[31:0] inverter
+XandTemp ap[30:0] temp nor31
+Xand temp ap31 out nor2
+.ends
+
+.subckt or32 a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 a31 out
+XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a20 a21 a22 a23 a24 a25 a26 a27 a28 a29 a30 temp or31
+Xor temp a31 out or2
+.ends
+
+
+
+.subckt adder32 op0 A[31:0] B[31:0] S[31:0] z v n
+
+Xxor B[31:0] op0#32 XB[31:0] xor2
+.connect op0 C0
+
+//Xclc A[31:0] XB[31:0] G[31:0] P[31:0] CLC
+
+Xc0clc0 A0 XB0 op0 G0 P0 S0 CLC
+
+Xc1and0 P0 op0 c1c0 and2
+Xc1or G0 c1c0 C1 or2
+Xc1clc A1 XB1 C1 G1 P1 S1 CLC
+
+Xc2and0 P1 G0 c2c0 and2
+Xc2and1 P1 P0 op0 c2c1 and3
+Xc2or G1 c2c0 c2c1 C2 or3
+Xc2clc A2 XB2 C2 G2 P2 S2 CLC
+
+Xc3and0 P2 G1 c3c0 and2
+Xc3and1 P2 P1 G0 c3c1 and3
+Xc3and2 P2 P1 P0 op0 c3c2 and4
+Xc3or G2 c3c0 c3c1 c3c2 C3 or4
+Xc3clc A3 XB3 C3 G3 P3 S3 CLC
+
+Xc4and0 P3 G2 c4c0 and2
+Xc4and1 P3 P2 G1 c4c1 and3
+Xc4and2 P3 P2 P1 G0 c4c2 and4
+Xc4and3 P3 P2 P1 P0 op0 c4c3 and5
+Xc4or G3 c4c0 c4c1 c4c2 c4c3 C4 or5
+Xc4clc A4 XB4 C4 G4 P4 S4 CLC
+
+
+
+//clc 5
+Xc5and0 P4 G3 c5c0 and2
+Xc5and1 P[4:3] G2 c5c1 and3
+Xc5and2 P[4:2] G1 c5c2 and4
+Xc5and3 P4 P3 P2 P1 G0 c5c3 and5
+Xc5and4 P[4:0] op0 c5c4 and6
+Xc5or G4 c5c0 c5c1 c5c2 c5c3 c5c4 C5 or6
+Xc5clc A5 XB5 C5 G5 P5 S5 CLC
+
+//clc 6
+Xc6and0 P5 G4 c6c0 and2
+Xc6and1 P[5:4] G3 c6c1 and3
+Xc6and2 P[5:3] G2 c6c2 and4
+Xc6and3 P[5:2] G1 c6c3 and5
+Xc6and4 P5 P4 P3 P2 P1 G0 c6c4 and6
+Xc6and5 P[5:0] op0 c6c5 and7
+Xc6or G5 c6c0 c6c1 c6c2 c6c3 c6c4 c6c5 C6 or7
+Xc6clc A6 XB6 C6 G6 P6 S6 CLC
+
+//clc 7
+Xc7and0 P6 G5 c7c0 and2
+Xc7and1 P[6:5] G4 c7c1 and3
+Xc7and2 P[6:4] G3 c7c2 and4
+Xc7and3 P[6:3] G2 c7c3 and5
+Xc7and4 P[6:2] G1 c7c4 and6
+Xc7and5 P6 P5 P4 P3 P2 P1 G0 c7c5 and7
+Xc7and6 P[6:0] op0 c7c6 and8
+Xc7or G6 c7c0 c7c1 c7c2 c7c3 c7c4 c7c5 c7c6 C7 or8
+Xc7clc A7 XB7 C7 G7 P7 S7 CLC
+
+//clc 8
+Xc8and0 P7 G6 c8c0 and2
+Xc8and1 P[7:6] G5 c8c1 and3
+Xc8and2 P[7:5] G4 c8c2 and4
+Xc8and3 P[7:4] G3 c8c3 and5
+Xc8and4 P[7:3] G2 c8c4 and6
+Xc8and5 P[7:2] G1 c8c5 and7
+Xc8and6 P7 P6 P5 P4 P3 P2 P1 G0 c8c6 and8
+Xc8and7 P[7:0] op0 c8c7 and9
+Xc8or G7 c8c0 c8c1 c8c2 c8c3 c8c4 c8c5 c8c6 c8c7 C8 or9
+Xc8clc A8 XB8 C8 G8 P8 S8 CLC
+
+//clc 9
+Xc9and0 P8 G7 c9c0 and2
+Xc9and1 P[8:7] G6 c9c1 and3
+Xc9and2 P[8:6] G5 c9c2 and4
+Xc9and3 P[8:5] G4 c9c3 and5
+Xc9and4 P[8:4] G3 c9c4 and6
+Xc9and5 P[8:3] G2 c9c5 and7
+Xc9and6 P[8:2] G1 c9c6 and8
+Xc9and7 P8 P7 P6 P5 P4 P3 P2 P1 G0 c9c7 and9
+Xc9and8 P[8:0] op0 c9c8 and10
+Xc9or G8 c9c0 c9c1 c9c2 c9c3 c9c4 c9c5 c9c6 c9c7 c9c8 C9 or10
+Xc9clc A9 XB9 C9 G9 P9 S9 CLC
+
+//clc 10
+Xc10and0 P9 G8 c10c0 and2
+Xc10and1 P[9:8] G7 c10c1 and3
+Xc10and2 P[9:7] G6 c10c2 and4
+Xc10and3 P[9:6] G5 c10c3 and5
+Xc10and4 P[9:5] G4 c10c4 and6
+Xc10and5 P[9:4] G3 c10c5 and7
+Xc10and6 P[9:3] G2 c10c6 and8
+Xc10and7 P[9:2] G1 c10c7 and9
+Xc10and8 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c10c8 and10
+Xc10and9 P[9:0] op0 c10c9 and11
+Xc10or G9 c10c0 c10c1 c10c2 c10c3 c10c4 c10c5 c10c6 c10c7 c10c8 c10c9 C10 or11
+Xc10clc A10 XB10 C10 G10 P10 S10 CLC
+
+//clc 11
+Xc11and0 P10 G9 c11c0 and2
+Xc11and1 P[10:9] G8 c11c1 and3
+Xc11and2 P[10:8] G7 c11c2 and4
+Xc11and3 P[10:7] G6 c11c3 and5
+Xc11and4 P[10:6] G5 c11c4 and6
+Xc11and5 P[10:5] G4 c11c5 and7
+Xc11and6 P[10:4] G3 c11c6 and8
+Xc11and7 P[10:3] G2 c11c7 and9
+Xc11and8 P[10:2] G1 c11c8 and10
+Xc11and9 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c11c9 and11
+Xc11and10 P[10:0] op0 c11c10 and12
+Xc11or G10 c11c0 c11c1 c11c2 c11c3 c11c4 c11c5 c11c6 c11c7 c11c8 c11c9 c11c10 C11 or12
+Xc11clc A11 XB11 C11 G11 P11 S11 CLC
+
+//clc 12
+Xc12and0 P11 G10 c12c0 and2
+Xc12and1 P[11:10] G9 c12c1 and3
+Xc12and2 P[11:9] G8 c12c2 and4
+Xc12and3 P[11:8] G7 c12c3 and5
+Xc12and4 P[11:7] G6 c12c4 and6
+Xc12and5 P[11:6] G5 c12c5 and7
+Xc12and6 P[11:5] G4 c12c6 and8
+Xc12and7 P[11:4] G3 c12c7 and9
+Xc12and8 P[11:3] G2 c12c8 and10
+Xc12and9 P[11:2] G1 c12c9 and11
+Xc12and10 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c12c10 and12
+Xc12and11 P[11:0] op0 c12c11 and13
+Xc12or G11 c12c0 c12c1 c12c2 c12c3 c12c4 c12c5 c12c6 c12c7 c12c8 c12c9 c12c10 c12c11 C12 or13
+Xc12clc A12 XB12 C12 G12 P12 S12 CLC
+
+//clc 13
+Xc13and0 P12 G11 c13c0 and2
+Xc13and1 P[12:11] G10 c13c1 and3
+Xc13and2 P[12:10] G9 c13c2 and4
+Xc13and3 P[12:9] G8 c13c3 and5
+Xc13and4 P[12:8] G7 c13c4 and6
+Xc13and5 P[12:7] G6 c13c5 and7
+Xc13and6 P[12:6] G5 c13c6 and8
+Xc13and7 P[12:5] G4 c13c7 and9
+Xc13and8 P[12:4] G3 c13c8 and10
+Xc13and9 P[12:3] G2 c13c9 and11
+Xc13and10 P[12:2] G1 c13c10 and12
+Xc13and11 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c13c11 and13
+Xc13and12 P[12:0] op0 c13c12 and14
+Xc13or G12 c13c0 c13c1 c13c2 c13c3 c13c4 c13c5 c13c6 c13c7 c13c8 c13c9 c13c10 c13c11 c13c12 C13 or14
+Xc13clc A13 XB13 C13 G13 P13 S13 CLC
+
+//clc 14
+Xc14and0 P13 G12 c14c0 and2
+Xc14and1 P[13:12] G11 c14c1 and3
+Xc14and2 P[13:11] G10 c14c2 and4
+Xc14and3 P[13:10] G9 c14c3 and5
+Xc14and4 P[13:9] G8 c14c4 and6
+Xc14and5 P[13:8] G7 c14c5 and7
+Xc14and6 P[13:7] G6 c14c6 and8
+Xc14and7 P[13:6] G5 c14c7 and9
+Xc14and8 P[13:5] G4 c14c8 and10
+Xc14and9 P[13:4] G3 c14c9 and11
+Xc14and10 P[13:3] G2 c14c10 and12
+Xc14and11 P[13:2] G1 c14c11 and13
+Xc14and12 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c14c12 and14
+Xc14and13 P[13:0] op0 c14c13 and15
+Xc14or G13 c14c0 c14c1 c14c2 c14c3 c14c4 c14c5 c14c6 c14c7 c14c8 c14c9 c14c10 c14c11 c14c12 c14c13 C14 or15
+Xc14clc A14 XB14 C14 G14 P14 S14 CLC
+
+//clc 15
+Xc15and0 P14 G13 c15c0 and2
+Xc15and1 P[14:13] G12 c15c1 and3
+Xc15and2 P[14:12] G11 c15c2 and4
+Xc15and3 P[14:11] G10 c15c3 and5
+Xc15and4 P[14:10] G9 c15c4 and6
+Xc15and5 P[14:9] G8 c15c5 and7
+Xc15and6 P[14:8] G7 c15c6 and8
+Xc15and7 P[14:7] G6 c15c7 and9
+Xc15and8 P[14:6] G5 c15c8 and10
+Xc15and9 P[14:5] G4 c15c9 and11
+Xc15and10 P[14:4] G3 c15c10 and12
+Xc15and11 P[14:3] G2 c15c11 and13
+Xc15and12 P[14:2] G1 c15c12 and14
+Xc15and13 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c15c13 and15
+Xc15and14 P[14:0] op0 c15c14 and16
+Xc15or G14 c15c0 c15c1 c15c2 c15c3 c15c4 c15c5 c15c6 c15c7 c15c8 c15c9 c15c10 c15c11 c15c12 c15c13 c15c14 C15 or16
+Xc15clc A15 XB15 C15 G15 P15 S15 CLC
+
+//clc 16
+Xc16and0 P15 G14 c16c0 and2
+Xc16and1 P[15:14] G13 c16c1 and3
+Xc16and2 P[15:13] G12 c16c2 and4
+Xc16and3 P[15:12] G11 c16c3 and5
+Xc16and4 P[15:11] G10 c16c4 and6
+Xc16and5 P[15:10] G9 c16c5 and7
+Xc16and6 P[15:9] G8 c16c6 and8
+Xc16and7 P[15:8] G7 c16c7 and9
+Xc16and8 P[15:7] G6 c16c8 and10
+Xc16and9 P[15:6] G5 c16c9 and11
+Xc16and10 P[15:5] G4 c16c10 and12
+Xc16and11 P[15:4] G3 c16c11 and13
+Xc16and12 P[15:3] G2 c16c12 and14
+Xc16and13 P[15:2] G1 c16c13 and15
+Xc16and14 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c16c14 and16
+Xc16and15 P[15:0] op0 c16c15 and17
+Xc16or G15 c16c0 c16c1 c16c2 c16c3 c16c4 c16c5 c16c6 c16c7 c16c8 c16c9 c16c10 c16c11 c16c12 c16c13 c16c14 c16c15 C16 or17
+Xc16clc A16 XB16 C16 G16 P16 S16 CLC
+
+//clc 17
+Xc17and0 P16 G15 c17c0 and2
+Xc17and1 P[16:15] G14 c17c1 and3
+Xc17and2 P[16:14] G13 c17c2 and4
+Xc17and3 P[16:13] G12 c17c3 and5
+Xc17and4 P[16:12] G11 c17c4 and6
+Xc17and5 P[16:11] G10 c17c5 and7
+Xc17and6 P[16:10] G9 c17c6 and8
+Xc17and7 P[16:9] G8 c17c7 and9
+Xc17and8 P[16:8] G7 c17c8 and10
+Xc17and9 P[16:7] G6 c17c9 and11
+Xc17and10 P[16:6] G5 c17c10 and12
+Xc17and11 P[16:5] G4 c17c11 and13
+Xc17and12 P[16:4] G3 c17c12 and14
+Xc17and13 P[16:3] G2 c17c13 and15
+Xc17and14 P[16:2] G1 c17c14 and16
+Xc17and15 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c17c15 and17
+Xc17and16 P[16:0] op0 c17c16 and18
+Xc17or G16 c17c0 c17c1 c17c2 c17c3 c17c4 c17c5 c17c6 c17c7 c17c8 c17c9 c17c10 c17c11 c17c12 c17c13 c17c14 c17c15 c17c16 C17 or18
+Xc17clc A17 XB17 C17 G17 P17 S17 CLC
+
+//clc 18
+Xc18and0 P17 G16 c18c0 and2
+Xc18and1 P[17:16] G15 c18c1 and3
+Xc18and2 P[17:15] G14 c18c2 and4
+Xc18and3 P[17:14] G13 c18c3 and5
+Xc18and4 P[17:13] G12 c18c4 and6
+Xc18and5 P[17:12] G11 c18c5 and7
+Xc18and6 P[17:11] G10 c18c6 and8
+Xc18and7 P[17:10] G9 c18c7 and9
+Xc18and8 P[17:9] G8 c18c8 and10
+Xc18and9 P[17:8] G7 c18c9 and11
+Xc18and10 P[17:7] G6 c18c10 and12
+Xc18and11 P[17:6] G5 c18c11 and13
+Xc18and12 P[17:5] G4 c18c12 and14
+Xc18and13 P[17:4] G3 c18c13 and15
+Xc18and14 P[17:3] G2 c18c14 and16
+Xc18and15 P[17:2] G1 c18c15 and17
+Xc18and16 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c18c16 and18
+Xc18and17 P[17:0] op0 c18c17 and19
+Xc18or G17 c18c0 c18c1 c18c2 c18c3 c18c4 c18c5 c18c6 c18c7 c18c8 c18c9 c18c10 c18c11 c18c12 c18c13 c18c14 c18c15 c18c16 c18c17 C18 or19
+Xc18clc A18 XB18 C18 G18 P18 S18 CLC
+
+//clc 19
+Xc19and0 P18 G17 c19c0 and2
+Xc19and1 P[18:17] G16 c19c1 and3
+Xc19and2 P[18:16] G15 c19c2 and4
+Xc19and3 P[18:15] G14 c19c3 and5
+Xc19and4 P[18:14] G13 c19c4 and6
+Xc19and5 P[18:13] G12 c19c5 and7
+Xc19and6 P[18:12] G11 c19c6 and8
+Xc19and7 P[18:11] G10 c19c7 and9
+Xc19and8 P[18:10] G9 c19c8 and10
+Xc19and9 P[18:9] G8 c19c9 and11
+Xc19and10 P[18:8] G7 c19c10 and12
+Xc19and11 P[18:7] G6 c19c11 and13
+Xc19and12 P[18:6] G5 c19c12 and14
+Xc19and13 P[18:5] G4 c19c13 and15
+Xc19and14 P[18:4] G3 c19c14 and16
+Xc19and15 P[18:3] G2 c19c15 and17
+Xc19and16 P[18:2] G1 c19c16 and18
+Xc19and17 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c19c17 and19
+Xc19and18 P[18:0] op0 c19c18 and20
+Xc19or G18 c19c0 c19c1 c19c2 c19c3 c19c4 c19c5 c19c6 c19c7 c19c8 c19c9 c19c10 c19c11 c19c12 c19c13 c19c14 c19c15 c19c16 c19c17 c19c18 C19 or20
+Xc19clc A19 XB19 C19 G19 P19 S19 CLC
+
+//clc 20
+Xc20and0 P19 G18 c20c0 and2
+Xc20and1 P[19:18] G17 c20c1 and3
+Xc20and2 P[19:17] G16 c20c2 and4
+Xc20and3 P[19:16] G15 c20c3 and5
+Xc20and4 P[19:15] G14 c20c4 and6
+Xc20and5 P[19:14] G13 c20c5 and7
+Xc20and6 P[19:13] G12 c20c6 and8
+Xc20and7 P[19:12] G11 c20c7 and9
+Xc20and8 P[19:11] G10 c20c8 and10
+Xc20and9 P[19:10] G9 c20c9 and11
+Xc20and10 P[19:9] G8 c20c10 and12
+Xc20and11 P[19:8] G7 c20c11 and13
+Xc20and12 P[19:7] G6 c20c12 and14
+Xc20and13 P[19:6] G5 c20c13 and15
+Xc20and14 P[19:5] G4 c20c14 and16
+Xc20and15 P[19:4] G3 c20c15 and17
+Xc20and16 P[19:3] G2 c20c16 and18
+Xc20and17 P[19:2] G1 c20c17 and19
+Xc20and18 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c20c18 and20
+Xc20and19 P[19:0] op0 c20c19 and21
+Xc20or G19 c20c0 c20c1 c20c2 c20c3 c20c4 c20c5 c20c6 c20c7 c20c8 c20c9 c20c10 c20c11 c20c12 c20c13 c20c14 c20c15 c20c16 c20c17 c20c18 c20c19 C20 or21
+Xc20clc A20 XB20 C20 G20 P20 S20 CLC
+
+//clc 21
+Xc21and0 P20 G19 c21c0 and2
+Xc21and1 P[20:19] G18 c21c1 and3
+Xc21and2 P[20:18] G17 c21c2 and4
+Xc21and3 P[20:17] G16 c21c3 and5
+Xc21and4 P[20:16] G15 c21c4 and6
+Xc21and5 P[20:15] G14 c21c5 and7
+Xc21and6 P[20:14] G13 c21c6 and8
+Xc21and7 P[20:13] G12 c21c7 and9
+Xc21and8 P[20:12] G11 c21c8 and10
+Xc21and9 P[20:11] G10 c21c9 and11
+Xc21and10 P[20:10] G9 c21c10 and12
+Xc21and11 P[20:9] G8 c21c11 and13
+Xc21and12 P[20:8] G7 c21c12 and14
+Xc21and13 P[20:7] G6 c21c13 and15
+Xc21and14 P[20:6] G5 c21c14 and16
+Xc21and15 P[20:5] G4 c21c15 and17
+Xc21and16 P[20:4] G3 c21c16 and18
+Xc21and17 P[20:3] G2 c21c17 and19
+Xc21and18 P[20:2] G1 c21c18 and20
+Xc21and19 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c21c19 and21
+Xc21and20 P[20:0] op0 c21c20 and22
+Xc21or G20 c21c0 c21c1 c21c2 c21c3 c21c4 c21c5 c21c6 c21c7 c21c8 c21c9 c21c10 c21c11 c21c12 c21c13 c21c14 c21c15 c21c16 c21c17 c21c18 c21c19 c21c20 C21 or22
+Xc21clc A21 XB21 C21 G21 P21 S21 CLC
+
+//clc 22
+Xc22and0 P21 G20 c22c0 and2
+Xc22and1 P[21:20] G19 c22c1 and3
+Xc22and2 P[21:19] G18 c22c2 and4
+Xc22and3 P[21:18] G17 c22c3 and5
+Xc22and4 P[21:17] G16 c22c4 and6
+Xc22and5 P[21:16] G15 c22c5 and7
+Xc22and6 P[21:15] G14 c22c6 and8
+Xc22and7 P[21:14] G13 c22c7 and9
+Xc22and8 P[21:13] G12 c22c8 and10
+Xc22and9 P[21:12] G11 c22c9 and11
+Xc22and10 P[21:11] G10 c22c10 and12
+Xc22and11 P[21:10] G9 c22c11 and13
+Xc22and12 P[21:9] G8 c22c12 and14
+Xc22and13 P[21:8] G7 c22c13 and15
+Xc22and14 P[21:7] G6 c22c14 and16
+Xc22and15 P[21:6] G5 c22c15 and17
+Xc22and16 P[21:5] G4 c22c16 and18
+Xc22and17 P[21:4] G3 c22c17 and19
+Xc22and18 P[21:3] G2 c22c18 and20
+Xc22and19 P[21:2] G1 c22c19 and21
+Xc22and20 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c22c20 and22
+Xc22and21 P[21:0] op0 c22c21 and23
+Xc22or G21 c22c0 c22c1 c22c2 c22c3 c22c4 c22c5 c22c6 c22c7 c22c8 c22c9 c22c10 c22c11 c22c12 c22c13 c22c14 c22c15 c22c16 c22c17 c22c18 c22c19 c22c20 c22c21 C22 or23
+Xc22clc A22 XB22 C22 G22 P22 S22 CLC
+
+//clc 23
+Xc23and0 P22 G21 c23c0 and2
+Xc23and1 P[22:21] G20 c23c1 and3
+Xc23and2 P[22:20] G19 c23c2 and4
+Xc23and3 P[22:19] G18 c23c3 and5
+Xc23and4 P[22:18] G17 c23c4 and6
+Xc23and5 P[22:17] G16 c23c5 and7
+Xc23and6 P[22:16] G15 c23c6 and8
+Xc23and7 P[22:15] G14 c23c7 and9
+Xc23and8 P[22:14] G13 c23c8 and10
+Xc23and9 P[22:13] G12 c23c9 and11
+Xc23and10 P[22:12] G11 c23c10 and12
+Xc23and11 P[22:11] G10 c23c11 and13
+Xc23and12 P[22:10] G9 c23c12 and14
+Xc23and13 P[22:9] G8 c23c13 and15
+Xc23and14 P[22:8] G7 c23c14 and16
+Xc23and15 P[22:7] G6 c23c15 and17
+Xc23and16 P[22:6] G5 c23c16 and18
+Xc23and17 P[22:5] G4 c23c17 and19
+Xc23and18 P[22:4] G3 c23c18 and20
+Xc23and19 P[22:3] G2 c23c19 and21
+Xc23and20 P[22:2] G1 c23c20 and22
+Xc23and21 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c23c21 and23
+Xc23and22 P[22:0] op0 c23c22 and24
+Xc23or G22 c23c0 c23c1 c23c2 c23c3 c23c4 c23c5 c23c6 c23c7 c23c8 c23c9 c23c10 c23c11 c23c12 c23c13 c23c14 c23c15 c23c16 c23c17 c23c18 c23c19 c23c20 c23c21 c23c22 C23 or24
+Xc23clc A23 XB23 C23 G23 P23 S23 CLC
+
+//clc 24
+Xc24and0 P23 G22 c24c0 and2
+Xc24and1 P[23:22] G21 c24c1 and3
+Xc24and2 P[23:21] G20 c24c2 and4
+Xc24and3 P[23:20] G19 c24c3 and5
+Xc24and4 P[23:19] G18 c24c4 and6
+Xc24and5 P[23:18] G17 c24c5 and7
+Xc24and6 P[23:17] G16 c24c6 and8
+Xc24and7 P[23:16] G15 c24c7 and9
+Xc24and8 P[23:15] G14 c24c8 and10
+Xc24and9 P[23:14] G13 c24c9 and11
+Xc24and10 P[23:13] G12 c24c10 and12
+Xc24and11 P[23:12] G11 c24c11 and13
+Xc24and12 P[23:11] G10 c24c12 and14
+Xc24and13 P[23:10] G9 c24c13 and15
+Xc24and14 P[23:9] G8 c24c14 and16
+Xc24and15 P[23:8] G7 c24c15 and17
+Xc24and16 P[23:7] G6 c24c16 and18
+Xc24and17 P[23:6] G5 c24c17 and19
+Xc24and18 P[23:5] G4 c24c18 and20
+Xc24and19 P[23:4] G3 c24c19 and21
+Xc24and20 P[23:3] G2 c24c20 and22
+Xc24and21 P[23:2] G1 c24c21 and23
+Xc24and22 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c24c22 and24
+Xc24and23 P[23:0] op0 c24c23 and25
+Xc24or G23 c24c0 c24c1 c24c2 c24c3 c24c4 c24c5 c24c6 c24c7 c24c8 c24c9 c24c10 c24c11 c24c12 c24c13 c24c14 c24c15 c24c16 c24c17 c24c18 c24c19 c24c20 c24c21 c24c22 c24c23 C24 or25
+Xc24clc A24 XB24 C24 G24 P24 S24 CLC
+
+//clc 25
+Xc25and0 P24 G23 c25c0 and2
+Xc25and1 P[24:23] G22 c25c1 and3
+Xc25and2 P[24:22] G21 c25c2 and4
+Xc25and3 P[24:21] G20 c25c3 and5
+Xc25and4 P[24:20] G19 c25c4 and6
+Xc25and5 P[24:19] G18 c25c5 and7
+Xc25and6 P[24:18] G17 c25c6 and8
+Xc25and7 P[24:17] G16 c25c7 and9
+Xc25and8 P[24:16] G15 c25c8 and10
+Xc25and9 P[24:15] G14 c25c9 and11
+Xc25and10 P[24:14] G13 c25c10 and12
+Xc25and11 P[24:13] G12 c25c11 and13
+Xc25and12 P[24:12] G11 c25c12 and14
+Xc25and13 P[24:11] G10 c25c13 and15
+Xc25and14 P[24:10] G9 c25c14 and16
+Xc25and15 P[24:9] G8 c25c15 and17
+Xc25and16 P[24:8] G7 c25c16 and18
+Xc25and17 P[24:7] G6 c25c17 and19
+Xc25and18 P[24:6] G5 c25c18 and20
+Xc25and19 P[24:5] G4 c25c19 and21
+Xc25and20 P[24:4] G3 c25c20 and22
+Xc25and21 P[24:3] G2 c25c21 and23
+Xc25and22 P[24:2] G1 c25c22 and24
+Xc25and23 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c25c23 and25
+Xc25and24 P[24:0] op0 c25c24 and26
+Xc25or G24 c25c0 c25c1 c25c2 c25c3 c25c4 c25c5 c25c6 c25c7 c25c8 c25c9 c25c10 c25c11 c25c12 c25c13 c25c14 c25c15 c25c16 c25c17 c25c18 c25c19 c25c20 c25c21 c25c22 c25c23 c25c24 C25 or26
+Xc25clc A25 XB25 C25 G25 P25 S25 CLC
+
+//clc 26
+Xc26and0 P25 G24 c26c0 and2
+Xc26and1 P[25:24] G23 c26c1 and3
+Xc26and2 P[25:23] G22 c26c2 and4
+Xc26and3 P[25:22] G21 c26c3 and5
+Xc26and4 P[25:21] G20 c26c4 and6
+Xc26and5 P[25:20] G19 c26c5 and7
+Xc26and6 P[25:19] G18 c26c6 and8
+Xc26and7 P[25:18] G17 c26c7 and9
+Xc26and8 P[25:17] G16 c26c8 and10
+Xc26and9 P[25:16] G15 c26c9 and11
+Xc26and10 P[25:15] G14 c26c10 and12
+Xc26and11 P[25:14] G13 c26c11 and13
+Xc26and12 P[25:13] G12 c26c12 and14
+Xc26and13 P[25:12] G11 c26c13 and15
+Xc26and14 P[25:11] G10 c26c14 and16
+Xc26and15 P[25:10] G9 c26c15 and17
+Xc26and16 P[25:9] G8 c26c16 and18
+Xc26and17 P[25:8] G7 c26c17 and19
+Xc26and18 P[25:7] G6 c26c18 and20
+Xc26and19 P[25:6] G5 c26c19 and21
+Xc26and20 P[25:5] G4 c26c20 and22
+Xc26and21 P[25:4] G3 c26c21 and23
+Xc26and22 P[25:3] G2 c26c22 and24
+Xc26and23 P[25:2] G1 c26c23 and25
+Xc26and24 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c26c24 and26
+Xc26and25 P[25:0] op0 c26c25 and27
+Xc26or G25 c26c0 c26c1 c26c2 c26c3 c26c4 c26c5 c26c6 c26c7 c26c8 c26c9 c26c10 c26c11 c26c12 c26c13 c26c14 c26c15 c26c16 c26c17 c26c18 c26c19 c26c20 c26c21 c26c22 c26c23 c26c24 c26c25 C26 or27
+Xc26clc A26 XB26 C26 G26 P26 S26 CLC
+
+//clc 27
+Xc27and0 P26 G25 c27c0 and2
+Xc27and1 P[26:25] G24 c27c1 and3
+Xc27and2 P[26:24] G23 c27c2 and4
+Xc27and3 P[26:23] G22 c27c3 and5
+Xc27and4 P[26:22] G21 c27c4 and6
+Xc27and5 P[26:21] G20 c27c5 and7
+Xc27and6 P[26:20] G19 c27c6 and8
+Xc27and7 P[26:19] G18 c27c7 and9
+Xc27and8 P[26:18] G17 c27c8 and10
+Xc27and9 P[26:17] G16 c27c9 and11
+Xc27and10 P[26:16] G15 c27c10 and12
+Xc27and11 P[26:15] G14 c27c11 and13
+Xc27and12 P[26:14] G13 c27c12 and14
+Xc27and13 P[26:13] G12 c27c13 and15
+Xc27and14 P[26:12] G11 c27c14 and16
+Xc27and15 P[26:11] G10 c27c15 and17
+Xc27and16 P[26:10] G9 c27c16 and18
+Xc27and17 P[26:9] G8 c27c17 and19
+Xc27and18 P[26:8] G7 c27c18 and20
+Xc27and19 P[26:7] G6 c27c19 and21
+Xc27and20 P[26:6] G5 c27c20 and22
+Xc27and21 P[26:5] G4 c27c21 and23
+Xc27and22 P[26:4] G3 c27c22 and24
+Xc27and23 P[26:3] G2 c27c23 and25
+Xc27and24 P[26:2] G1 c27c24 and26
+Xc27and25 P26 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c27c25 and27
+Xc27and26 P[26:0] op0 c27c26 and28
+Xc27or G26 c27c0 c27c1 c27c2 c27c3 c27c4 c27c5 c27c6 c27c7 c27c8 c27c9 c27c10 c27c11 c27c12 c27c13 c27c14 c27c15 c27c16 c27c17 c27c18 c27c19 c27c20 c27c21 c27c22 c27c23 c27c24 c27c25 c27c26 C27 or28
+Xc27clc A27 XB27 C27 G27 P27 S27 CLC
+
+//clc 28
+Xc28and0 P27 G26 c28c0 and2
+Xc28and1 P[27:26] G25 c28c1 and3
+Xc28and2 P[27:25] G24 c28c2 and4
+Xc28and3 P[27:24] G23 c28c3 and5
+Xc28and4 P[27:23] G22 c28c4 and6
+Xc28and5 P[27:22] G21 c28c5 and7
+Xc28and6 P[27:21] G20 c28c6 and8
+Xc28and7 P[27:20] G19 c28c7 and9
+Xc28and8 P[27:19] G18 c28c8 and10
+Xc28and9 P[27:18] G17 c28c9 and11
+Xc28and10 P[27:17] G16 c28c10 and12
+Xc28and11 P[27:16] G15 c28c11 and13
+Xc28and12 P[27:15] G14 c28c12 and14
+Xc28and13 P[27:14] G13 c28c13 and15
+Xc28and14 P[27:13] G12 c28c14 and16
+Xc28and15 P[27:12] G11 c28c15 and17
+Xc28and16 P[27:11] G10 c28c16 and18
+Xc28and17 P[27:10] G9 c28c17 and19
+Xc28and18 P[27:9] G8 c28c18 and20
+Xc28and19 P[27:8] G7 c28c19 and21
+Xc28and20 P[27:7] G6 c28c20 and22
+Xc28and21 P[27:6] G5 c28c21 and23
+Xc28and22 P[27:5] G4 c28c22 and24
+Xc28and23 P[27:4] G3 c28c23 and25
+Xc28and24 P[27:3] G2 c28c24 and26
+Xc28and25 P[27:2] G1 c28c25 and27
+Xc28and26 P27 P26 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c28c26 and28
+Xc28and27 P[27:0] op0 c28c27 and29
+Xc28or G27 c28c0 c28c1 c28c2 c28c3 c28c4 c28c5 c28c6 c28c7 c28c8 c28c9 c28c10 c28c11 c28c12 c28c13 c28c14 c28c15 c28c16 c28c17 c28c18 c28c19 c28c20 c28c21 c28c22 c28c23 c28c24 c28c25 c28c26 c28c27 C28 or29
+Xc28clc A28 XB28 C28 G28 P28 S28 CLC
+
+//clc 29
+Xc29and0 P28 G27 c29c0 and2
+Xc29and1 P[28:27] G26 c29c1 and3
+Xc29and2 P[28:26] G25 c29c2 and4
+Xc29and3 P[28:25] G24 c29c3 and5
+Xc29and4 P[28:24] G23 c29c4 and6
+Xc29and5 P[28:23] G22 c29c5 and7
+Xc29and6 P[28:22] G21 c29c6 and8
+Xc29and7 P[28:21] G20 c29c7 and9
+Xc29and8 P[28:20] G19 c29c8 and10
+Xc29and9 P[28:19] G18 c29c9 and11
+Xc29and10 P[28:18] G17 c29c10 and12
+Xc29and11 P[28:17] G16 c29c11 and13
+Xc29and12 P[28:16] G15 c29c12 and14
+Xc29and13 P[28:15] G14 c29c13 and15
+Xc29and14 P[28:14] G13 c29c14 and16
+Xc29and15 P[28:13] G12 c29c15 and17
+Xc29and16 P[28:12] G11 c29c16 and18
+Xc29and17 P[28:11] G10 c29c17 and19
+Xc29and18 P[28:10] G9 c29c18 and20
+Xc29and19 P[28:9] G8 c29c19 and21
+Xc29and20 P[28:8] G7 c29c20 and22
+Xc29and21 P[28:7] G6 c29c21 and23
+Xc29and22 P[28:6] G5 c29c22 and24
+Xc29and23 P[28:5] G4 c29c23 and25
+Xc29and24 P[28:4] G3 c29c24 and26
+Xc29and25 P[28:3] G2 c29c25 and27
+Xc29and26 P[28:2] G1 c29c26 and28
+Xc29and27 P28 P27 P26 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c29c27 and29
+Xc29and28 P[28:0] op0 c29c28 and30
+Xc29or G28 c29c0 c29c1 c29c2 c29c3 c29c4 c29c5 c29c6 c29c7 c29c8 c29c9 c29c10 c29c11 c29c12 c29c13 c29c14 c29c15 c29c16 c29c17 c29c18 c29c19 c29c20 c29c21 c29c22 c29c23 c29c24 c29c25 c29c26 c29c27 c29c28 C29 or30
+Xc29clc A29 XB29 C29 G29 P29 S29 CLC
+
+//clc 30
+Xc30and0 P29 G28 c30c0 and2
+Xc30and1 P[29:28] G27 c30c1 and3
+Xc30and2 P[29:27] G26 c30c2 and4
+Xc30and3 P[29:26] G25 c30c3 and5
+Xc30and4 P[29:25] G24 c30c4 and6
+Xc30and5 P[29:24] G23 c30c5 and7
+Xc30and6 P[29:23] G22 c30c6 and8
+Xc30and7 P[29:22] G21 c30c7 and9
+Xc30and8 P[29:21] G20 c30c8 and10
+Xc30and9 P[29:20] G19 c30c9 and11
+Xc30and10 P[29:19] G18 c30c10 and12
+Xc30and11 P[29:18] G17 c30c11 and13
+Xc30and12 P[29:17] G16 c30c12 and14
+Xc30and13 P[29:16] G15 c30c13 and15
+Xc30and14 P[29:15] G14 c30c14 and16
+Xc30and15 P[29:14] G13 c30c15 and17
+Xc30and16 P[29:13] G12 c30c16 and18
+Xc30and17 P[29:12] G11 c30c17 and19
+Xc30and18 P[29:11] G10 c30c18 and20
+Xc30and19 P[29:10] G9 c30c19 and21
+Xc30and20 P[29:9] G8 c30c20 and22
+Xc30and21 P[29:8] G7 c30c21 and23
+Xc30and22 P[29:7] G6 c30c22 and24
+Xc30and23 P[29:6] G5 c30c23 and25
+Xc30and24 P[29:5] G4 c30c24 and26
+Xc30and25 P[29:4] G3 c30c25 and27
+Xc30and26 P[29:3] G2 c30c26 and28
+Xc30and27 P[29:2] G1 c30c27 and29
+Xc30and28 P29 P28 P27 P26 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c30c28 and30
+Xc30and29 P[29:0] op0 c30c29 and31
+Xc30or G29 c30c0 c30c1 c30c2 c30c3 c30c4 c30c5 c30c6 c30c7 c30c8 c30c9 c30c10 c30c11 c30c12 c30c13 c30c14 c30c15 c30c16 c30c17 c30c18 c30c19 c30c20 c30c21 c30c22 c30c23 c30c24 c30c25 c30c26 c30c27 c30c28 c30c29 C30 or31
+Xc30clc A30 XB30 C30 G30 P30 S30 CLC
+
+//clc 31
+Xc31and0 P30 G29 c31c0 and2
+Xc31and1 P[30:29] G28 c31c1 and3
+Xc31and2 P[30:28] G27 c31c2 and4
+Xc31and3 P[30:27] G26 c31c3 and5
+Xc31and4 P[30:26] G25 c31c4 and6
+Xc31and5 P[30:25] G24 c31c5 and7
+Xc31and6 P[30:24] G23 c31c6 and8
+Xc31and7 P[30:23] G22 c31c7 and9
+Xc31and8 P[30:22] G21 c31c8 and10
+Xc31and9 P[30:21] G20 c31c9 and11
+Xc31and10 P[30:20] G19 c31c10 and12
+Xc31and11 P[30:19] G18 c31c11 and13
+Xc31and12 P[30:18] G17 c31c12 and14
+Xc31and13 P[30:17] G16 c31c13 and15
+Xc31and14 P[30:16] G15 c31c14 and16
+Xc31and15 P[30:15] G14 c31c15 and17
+Xc31and16 P[30:14] G13 c31c16 and18
+Xc31and17 P[30:13] G12 c31c17 and19
+Xc31and18 P[30:12] G11 c31c18 and20
+Xc31and19 P[30:11] G10 c31c19 and21
+Xc31and20 P[30:10] G9 c31c20 and22
+Xc31and21 P[30:9] G8 c31c21 and23
+Xc31and22 P[30:8] G7 c31c22 and24
+Xc31and23 P[30:7] G6 c31c23 and25
+Xc31and24 P[30:6] G5 c31c24 and26
+Xc31and25 P[30:5] G4 c31c25 and27
+Xc31and26 P[30:4] G3 c31c26 and28
+Xc31and27 P[30:3] G2 c31c27 and29
+Xc31and28 P[30:2] G1 c31c28 and30
+Xc31and29 P30 P29 P28 P27 P26 P25 P24 P23 P22 P21 P20 P19 P18 P17 P16 P15 P14 P13 P12 P11 P10 P9 P8 P7 P6 P5 P4 P3 P2 P1 G0 c31c29 and31
+Xc31and30 P[30:0] op0 c31c30 and32
+Xc31or G30 c31c0 c31c1 c31c2 c31c3 c31c4 c31c5 c31c6 c31c7 c31c8 c31c9 c31c10 c31c11 c31c12 c31c13 c31c14 c31c15 c31c16 c31c17 c31c18 c31c19 c31c20 c31c21 c31c22 c31c23 c31c24 c31c25 c31c26 c31c27 c31c28 c31c29 c31c30 C31 or32
+Xc31clc A31 XB31 C31 G31 P31 S31 CLC
+
+
+
+//Xadder0 A0 XB0 op0 S0 xor3
+//Xadder A[31:1] XB[31:1] C[30:0] S[31:1] xor3
+*******************************************************************
+Xz S[31:0] z Z
+Xv A31 XB31 S31 v V
+Xn S31 n N
+.ends
+
+.subckt Z S[31:0] Zout
+Xnor S[3:0] S[7:4] S[11:8] S[15:12] S[19:16] S[23:20] S[27:24] S[31:28] z[7:0] nor4
+Xandddd z[3:0] z[7:4] zA[1:0] and4
+Xand zA0 zA1 Zout and2  
+.ends
+
+.subckt V A31 XB31 S31 Vout
+XAbar A31 abar inverter
+XBbar XB31 bbar inverter
+XSbar S31 sbar inverter
+XandOne A31 XB31 sbar AndOne and3
+XandTwo abar bbar S31 AndTwo and3
+Xor AndOne AndTwo Vout or2
+.ends
+
+.subckt N S31 Nout
+.connect S31 Nout
+.ends
