@@ -79,18 +79,21 @@ for i in range(4,31):
 '''
 
 
-
+'''
 # Scripting for and & or gates
 for i in range(5,33):
 
 	print ".subckt nor%d a[%d:0] out"%(i-1,i-2)
-	print "XnorTemp a[%d:0] temp nor%d"%(i-3,i-2)
-	print "Xnor temp a%d out nor2"%(i-2)
+	print "XnorTemp a[%d:0] temp0 nor%d"%(i-3,i-2)
+	print "Xinv a%d ap%d inverter"%(i-2,i-2)
+	print "Xand ap%d temp0 out and2"%(i-2)
+	# print "Xinverter temp0 temp inverter"
+	# print "Xnor temp a%d out nor2"%(i-2)
 	print ".ends\n"
 
 	print ".subckt and%d"%i + " a[%d:0] out"%(i-1)
 	print "Xinvert a[%d:0] ap[%d:0] inverter"%(i-1,i-1)
-	print "XandTemp ap[%d:0]"%(i-2) + " temp nor%d"%(i-1)
+	print "XandTemp ap[%d:0]"%(i-2) + " temp nand%d"%(i-1)
 	print "Xand temp ap%d"%(i-1) + " out nor2"
 	print ".ends\n"
 	
@@ -99,3 +102,32 @@ for i in range(5,33):
 	print "Xor temp a%d"%(i-1) + " out or2"
 	print ".ends\n"
 	input += " a%d"%(i-1)
+'''
+
+# for i in range(5,33):
+# 	print ".subckt nand%d a[%d:0] out"%(i,i-1)
+# 	print "XprevAnd a[%d:0] temp nand%d"%(i-2,i-1)
+# 	print "Xinv temp temp0 inverter"
+# 	print "Xnand temp0 a%d out nand2"%(i-1)
+# 	print ".ends\n"
+
+# print 5%4
+# print (5%4)/3
+# print 6%4
+# print (6%4)/3
+# print 7%4
+# print (7%4)/3
+# print 8%4
+# print (8%4)/3
+# print 9%4
+# print (9%4)/3
+# print 10%4
+# print (10%4)/3
+# print 11%4
+# print (11%4)/3
+# print 12%4
+# print (12%4)/3
+
+for numInput in range(5,34,4):
+	print numInput
+	

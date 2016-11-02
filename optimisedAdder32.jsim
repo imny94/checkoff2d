@@ -1,8 +1,8 @@
 .include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\nominal.jsim"
 .include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\stdcell.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\lab3adder.jsim"
-.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
-//.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_6ns.jsim"
+//.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_6ns.jsim"
 
 .subckt CLC A B Cin G P S
 //Xandp A B Gp nor2
@@ -21,14 +21,16 @@ Xxor1 A B temp xor2
 Xxor2 temp C out xor2
 .ends
 
+/*
 .subckt nor4 a[3:0] out
-XnorTemp a[2:0] temp nor3
-Xnor temp a3 out nor2
+XnorTemp a[2:0] temp0 nor3
+Xinv a3 ap3 inverter
+Xand ap3 temp0 out and2
 .ends
 
 .subckt and5 a[4:0] out
 Xinvert a[4:0] ap[4:0] inverter
-XandTemp ap[3:0] temp nor4
+XandTemp ap[3:0] temp nand4
 Xand temp ap4 out nor2
 .ends
 
@@ -38,13 +40,14 @@ Xor temp a4 out or2
 .ends
 
 .subckt nor5 a[4:0] out
-XnorTemp a[3:0] temp nor4
-Xnor temp a4 out nor2
+XnorTemp a[3:0] temp0 nor4
+Xinv a4 ap4 inverter
+Xand ap4 temp0 out and2
 .ends
 
 .subckt and6 a[5:0] out
 Xinvert a[5:0] ap[5:0] inverter
-XandTemp ap[4:0] temp nor5
+XandTemp ap[4:0] temp nand5
 Xand temp ap5 out nor2
 .ends
 
@@ -54,13 +57,14 @@ Xor temp a5 out or2
 .ends
 
 .subckt nor6 a[5:0] out
-XnorTemp a[4:0] temp nor5
-Xnor temp a5 out nor2
+XnorTemp a[4:0] temp0 nor5
+Xinv a5 ap5 inverter
+Xand ap5 temp0 out and2
 .ends
 
 .subckt and7 a[6:0] out
 Xinvert a[6:0] ap[6:0] inverter
-XandTemp ap[5:0] temp nor6
+XandTemp ap[5:0] temp nand6
 Xand temp ap6 out nor2
 .ends
 
@@ -70,13 +74,14 @@ Xor temp a6 out or2
 .ends
 
 .subckt nor7 a[6:0] out
-XnorTemp a[5:0] temp nor6
-Xnor temp a6 out nor2
+XnorTemp a[5:0] temp0 nor6
+Xinv a6 ap6 inverter
+Xand ap6 temp0 out and2
 .ends
 
 .subckt and8 a[7:0] out
 Xinvert a[7:0] ap[7:0] inverter
-XandTemp ap[6:0] temp nor7
+XandTemp ap[6:0] temp nand7
 Xand temp ap7 out nor2
 .ends
 
@@ -86,13 +91,14 @@ Xor temp a7 out or2
 .ends
 
 .subckt nor8 a[7:0] out
-XnorTemp a[6:0] temp nor7
-Xnor temp a7 out nor2
+XnorTemp a[6:0] temp0 nor7
+Xinv a7 ap7 inverter
+Xand ap7 temp0 out and2
 .ends
 
 .subckt and9 a[8:0] out
 Xinvert a[8:0] ap[8:0] inverter
-XandTemp ap[7:0] temp nor8
+XandTemp ap[7:0] temp nand8
 Xand temp ap8 out nor2
 .ends
 
@@ -102,13 +108,14 @@ Xor temp a8 out or2
 .ends
 
 .subckt nor9 a[8:0] out
-XnorTemp a[7:0] temp nor8
-Xnor temp a8 out nor2
+XnorTemp a[7:0] temp0 nor8
+Xinv a8 ap8 inverter
+Xand ap8 temp0 out and2
 .ends
 
 .subckt and10 a[9:0] out
 Xinvert a[9:0] ap[9:0] inverter
-XandTemp ap[8:0] temp nor9
+XandTemp ap[8:0] temp nand9
 Xand temp ap9 out nor2
 .ends
 
@@ -118,13 +125,14 @@ Xor temp a9 out or2
 .ends
 
 .subckt nor10 a[9:0] out
-XnorTemp a[8:0] temp nor9
-Xnor temp a9 out nor2
+XnorTemp a[8:0] temp0 nor9
+Xinv a9 ap9 inverter
+Xand ap9 temp0 out and2
 .ends
 
 .subckt and11 a[10:0] out
 Xinvert a[10:0] ap[10:0] inverter
-XandTemp ap[9:0] temp nor10
+XandTemp ap[9:0] temp nand10
 Xand temp ap10 out nor2
 .ends
 
@@ -134,13 +142,14 @@ Xor temp a10 out or2
 .ends
 
 .subckt nor11 a[10:0] out
-XnorTemp a[9:0] temp nor10
-Xnor temp a10 out nor2
+XnorTemp a[9:0] temp0 nor10
+Xinv a10 ap10 inverter
+Xand ap10 temp0 out and2
 .ends
 
 .subckt and12 a[11:0] out
 Xinvert a[11:0] ap[11:0] inverter
-XandTemp ap[10:0] temp nor11
+XandTemp ap[10:0] temp nand11
 Xand temp ap11 out nor2
 .ends
 
@@ -150,13 +159,14 @@ Xor temp a11 out or2
 .ends
 
 .subckt nor12 a[11:0] out
-XnorTemp a[10:0] temp nor11
-Xnor temp a11 out nor2
+XnorTemp a[10:0] temp0 nor11
+Xinv a11 ap11 inverter
+Xand ap11 temp0 out and2
 .ends
 
 .subckt and13 a[12:0] out
 Xinvert a[12:0] ap[12:0] inverter
-XandTemp ap[11:0] temp nor12
+XandTemp ap[11:0] temp nand12
 Xand temp ap12 out nor2
 .ends
 
@@ -166,13 +176,14 @@ Xor temp a12 out or2
 .ends
 
 .subckt nor13 a[12:0] out
-XnorTemp a[11:0] temp nor12
-Xnor temp a12 out nor2
+XnorTemp a[11:0] temp0 nor12
+Xinv a12 ap12 inverter
+Xand ap12 temp0 out and2
 .ends
 
 .subckt and14 a[13:0] out
 Xinvert a[13:0] ap[13:0] inverter
-XandTemp ap[12:0] temp nor13
+XandTemp ap[12:0] temp nand13
 Xand temp ap13 out nor2
 .ends
 
@@ -182,13 +193,14 @@ Xor temp a13 out or2
 .ends
 
 .subckt nor14 a[13:0] out
-XnorTemp a[12:0] temp nor13
-Xnor temp a13 out nor2
+XnorTemp a[12:0] temp0 nor13
+Xinv a13 ap13 inverter
+Xand ap13 temp0 out and2
 .ends
 
 .subckt and15 a[14:0] out
 Xinvert a[14:0] ap[14:0] inverter
-XandTemp ap[13:0] temp nor14
+XandTemp ap[13:0] temp nand14
 Xand temp ap14 out nor2
 .ends
 
@@ -198,13 +210,14 @@ Xor temp a14 out or2
 .ends
 
 .subckt nor15 a[14:0] out
-XnorTemp a[13:0] temp nor14
-Xnor temp a14 out nor2
+XnorTemp a[13:0] temp0 nor14
+Xinv a14 ap14 inverter
+Xand ap14 temp0 out and2
 .ends
 
 .subckt and16 a[15:0] out
 Xinvert a[15:0] ap[15:0] inverter
-XandTemp ap[14:0] temp nor15
+XandTemp ap[14:0] temp nand15
 Xand temp ap15 out nor2
 .ends
 
@@ -214,13 +227,14 @@ Xor temp a15 out or2
 .ends
 
 .subckt nor16 a[15:0] out
-XnorTemp a[14:0] temp nor15
-Xnor temp a15 out nor2
+XnorTemp a[14:0] temp0 nor15
+Xinv a15 ap15 inverter
+Xand ap15 temp0 out and2
 .ends
 
 .subckt and17 a[16:0] out
 Xinvert a[16:0] ap[16:0] inverter
-XandTemp ap[15:0] temp nor16
+XandTemp ap[15:0] temp nand16
 Xand temp ap16 out nor2
 .ends
 
@@ -230,13 +244,14 @@ Xor temp a16 out or2
 .ends
 
 .subckt nor17 a[16:0] out
-XnorTemp a[15:0] temp nor16
-Xnor temp a16 out nor2
+XnorTemp a[15:0] temp0 nor16
+Xinv a16 ap16 inverter
+Xand ap16 temp0 out and2
 .ends
 
 .subckt and18 a[17:0] out
 Xinvert a[17:0] ap[17:0] inverter
-XandTemp ap[16:0] temp nor17
+XandTemp ap[16:0] temp nand17
 Xand temp ap17 out nor2
 .ends
 
@@ -246,13 +261,14 @@ Xor temp a17 out or2
 .ends
 
 .subckt nor18 a[17:0] out
-XnorTemp a[16:0] temp nor17
-Xnor temp a17 out nor2
+XnorTemp a[16:0] temp0 nor17
+Xinv a17 ap17 inverter
+Xand ap17 temp0 out and2
 .ends
 
 .subckt and19 a[18:0] out
 Xinvert a[18:0] ap[18:0] inverter
-XandTemp ap[17:0] temp nor18
+XandTemp ap[17:0] temp nand18
 Xand temp ap18 out nor2
 .ends
 
@@ -262,13 +278,14 @@ Xor temp a18 out or2
 .ends
 
 .subckt nor19 a[18:0] out
-XnorTemp a[17:0] temp nor18
-Xnor temp a18 out nor2
+XnorTemp a[17:0] temp0 nor18
+Xinv a18 ap18 inverter
+Xand ap18 temp0 out and2
 .ends
 
 .subckt and20 a[19:0] out
 Xinvert a[19:0] ap[19:0] inverter
-XandTemp ap[18:0] temp nor19
+XandTemp ap[18:0] temp nand19
 Xand temp ap19 out nor2
 .ends
 
@@ -278,13 +295,14 @@ Xor temp a19 out or2
 .ends
 
 .subckt nor20 a[19:0] out
-XnorTemp a[18:0] temp nor19
-Xnor temp a19 out nor2
+XnorTemp a[18:0] temp0 nor19
+Xinv a19 ap19 inverter
+Xand ap19 temp0 out and2
 .ends
 
 .subckt and21 a[20:0] out
 Xinvert a[20:0] ap[20:0] inverter
-XandTemp ap[19:0] temp nor20
+XandTemp ap[19:0] temp nand20
 Xand temp ap20 out nor2
 .ends
 
@@ -294,13 +312,14 @@ Xor temp a20 out or2
 .ends
 
 .subckt nor21 a[20:0] out
-XnorTemp a[19:0] temp nor20
-Xnor temp a20 out nor2
+XnorTemp a[19:0] temp0 nor20
+Xinv a20 ap20 inverter
+Xand ap20 temp0 out and2
 .ends
 
 .subckt and22 a[21:0] out
 Xinvert a[21:0] ap[21:0] inverter
-XandTemp ap[20:0] temp nor21
+XandTemp ap[20:0] temp nand21
 Xand temp ap21 out nor2
 .ends
 
@@ -310,13 +329,14 @@ Xor temp a21 out or2
 .ends
 
 .subckt nor22 a[21:0] out
-XnorTemp a[20:0] temp nor21
-Xnor temp a21 out nor2
+XnorTemp a[20:0] temp0 nor21
+Xinv a21 ap21 inverter
+Xand ap21 temp0 out and2
 .ends
 
 .subckt and23 a[22:0] out
 Xinvert a[22:0] ap[22:0] inverter
-XandTemp ap[21:0] temp nor22
+XandTemp ap[21:0] temp nand22
 Xand temp ap22 out nor2
 .ends
 
@@ -326,13 +346,14 @@ Xor temp a22 out or2
 .ends
 
 .subckt nor23 a[22:0] out
-XnorTemp a[21:0] temp nor22
-Xnor temp a22 out nor2
+XnorTemp a[21:0] temp0 nor22
+Xinv a22 ap22 inverter
+Xand ap22 temp0 out and2
 .ends
 
 .subckt and24 a[23:0] out
 Xinvert a[23:0] ap[23:0] inverter
-XandTemp ap[22:0] temp nor23
+XandTemp ap[22:0] temp nand23
 Xand temp ap23 out nor2
 .ends
 
@@ -342,13 +363,14 @@ Xor temp a23 out or2
 .ends
 
 .subckt nor24 a[23:0] out
-XnorTemp a[22:0] temp nor23
-Xnor temp a23 out nor2
+XnorTemp a[22:0] temp0 nor23
+Xinv a23 ap23 inverter
+Xand ap23 temp0 out and2
 .ends
 
 .subckt and25 a[24:0] out
 Xinvert a[24:0] ap[24:0] inverter
-XandTemp ap[23:0] temp nor24
+XandTemp ap[23:0] temp nand24
 Xand temp ap24 out nor2
 .ends
 
@@ -358,13 +380,14 @@ Xor temp a24 out or2
 .ends
 
 .subckt nor25 a[24:0] out
-XnorTemp a[23:0] temp nor24
-Xnor temp a24 out nor2
+XnorTemp a[23:0] temp0 nor24
+Xinv a24 ap24 inverter
+Xand ap24 temp0 out and2
 .ends
 
 .subckt and26 a[25:0] out
 Xinvert a[25:0] ap[25:0] inverter
-XandTemp ap[24:0] temp nor25
+XandTemp ap[24:0] temp nand25
 Xand temp ap25 out nor2
 .ends
 
@@ -374,13 +397,14 @@ Xor temp a25 out or2
 .ends
 
 .subckt nor26 a[25:0] out
-XnorTemp a[24:0] temp nor25
-Xnor temp a25 out nor2
+XnorTemp a[24:0] temp0 nor25
+Xinv a25 ap25 inverter
+Xand ap25 temp0 out and2
 .ends
 
 .subckt and27 a[26:0] out
 Xinvert a[26:0] ap[26:0] inverter
-XandTemp ap[25:0] temp nor26
+XandTemp ap[25:0] temp nand26
 Xand temp ap26 out nor2
 .ends
 
@@ -390,13 +414,14 @@ Xor temp a26 out or2
 .ends
 
 .subckt nor27 a[26:0] out
-XnorTemp a[25:0] temp nor26
-Xnor temp a26 out nor2
+XnorTemp a[25:0] temp0 nor26
+Xinv a26 ap26 inverter
+Xand ap26 temp0 out and2
 .ends
 
 .subckt and28 a[27:0] out
 Xinvert a[27:0] ap[27:0] inverter
-XandTemp ap[26:0] temp nor27
+XandTemp ap[26:0] temp nand27
 Xand temp ap27 out nor2
 .ends
 
@@ -406,13 +431,14 @@ Xor temp a27 out or2
 .ends
 
 .subckt nor28 a[27:0] out
-XnorTemp a[26:0] temp nor27
-Xnor temp a27 out nor2
+XnorTemp a[26:0] temp0 nor27
+Xinv a27 ap27 inverter
+Xand ap27 temp0 out and2
 .ends
 
 .subckt and29 a[28:0] out
 Xinvert a[28:0] ap[28:0] inverter
-XandTemp ap[27:0] temp nor28
+XandTemp ap[27:0] temp nand28
 Xand temp ap28 out nor2
 .ends
 
@@ -422,13 +448,14 @@ Xor temp a28 out or2
 .ends
 
 .subckt nor29 a[28:0] out
-XnorTemp a[27:0] temp nor28
-Xnor temp a28 out nor2
+XnorTemp a[27:0] temp0 nor28
+Xinv a28 ap28 inverter
+Xand ap28 temp0 out and2
 .ends
 
 .subckt and30 a[29:0] out
 Xinvert a[29:0] ap[29:0] inverter
-XandTemp ap[28:0] temp nor29
+XandTemp ap[28:0] temp nand29
 Xand temp ap29 out nor2
 .ends
 
@@ -438,13 +465,14 @@ Xor temp a29 out or2
 .ends
 
 .subckt nor30 a[29:0] out
-XnorTemp a[28:0] temp nor29
-Xnor temp a29 out nor2
+XnorTemp a[28:0] temp0 nor29
+Xinv a29 ap29 inverter
+Xand ap29 temp0 out and2
 .ends
 
 .subckt and31 a[30:0] out
 Xinvert a[30:0] ap[30:0] inverter
-XandTemp ap[29:0] temp nor30
+XandTemp ap[29:0] temp nand30
 Xand temp ap30 out nor2
 .ends
 
@@ -454,13 +482,14 @@ Xor temp a30 out or2
 .ends
 
 .subckt nor31 a[30:0] out
-XnorTemp a[29:0] temp nor30
-Xnor temp a30 out nor2
+XnorTemp a[29:0] temp0 nor30
+Xinv a30 ap30 inverter
+Xand ap30 temp0 out and2
 .ends
 
 .subckt and32 a[31:0] out
 Xinvert a[31:0] ap[31:0] inverter
-XandTemp ap[30:0] temp nor31
+XandTemp ap[30:0] temp nand31
 Xand temp ap31 out nor2
 .ends
 
@@ -469,7 +498,697 @@ XorTemp a0 a1 a2 a3 a4 a5 a6 a7 a8 a9 a10 a11 a12 a13 a14 a15 a16 a17 a18 a19 a2
 Xor temp a31 out or2
 .ends
 
+.subckt nand5 a[4:0] out
+XprevAnd a[3:0] temp nand4
+Xinv temp temp0 inverter
+Xnand temp0 a4 out nand2
+.ends
 
+.subckt nand6 a[5:0] out
+XprevAnd a[4:0] temp nand5
+Xinv temp temp0 inverter
+Xnand temp0 a5 out nand2
+.ends
+
+.subckt nand7 a[6:0] out
+XprevAnd a[5:0] temp nand6
+Xinv temp temp0 inverter
+Xnand temp0 a6 out nand2
+.ends
+
+.subckt nand8 a[7:0] out
+XprevAnd a[6:0] temp nand7
+Xinv temp temp0 inverter
+Xnand temp0 a7 out nand2
+.ends
+
+.subckt nand9 a[8:0] out
+XprevAnd a[7:0] temp nand8
+Xinv temp temp0 inverter
+Xnand temp0 a8 out nand2
+.ends
+
+.subckt nand10 a[9:0] out
+XprevAnd a[8:0] temp nand9
+Xinv temp temp0 inverter
+Xnand temp0 a9 out nand2
+.ends
+
+.subckt nand11 a[10:0] out
+XprevAnd a[9:0] temp nand10
+Xinv temp temp0 inverter
+Xnand temp0 a10 out nand2
+.ends
+
+.subckt nand12 a[11:0] out
+XprevAnd a[10:0] temp nand11
+Xinv temp temp0 inverter
+Xnand temp0 a11 out nand2
+.ends
+
+.subckt nand13 a[12:0] out
+XprevAnd a[11:0] temp nand12
+Xinv temp temp0 inverter
+Xnand temp0 a12 out nand2
+.ends
+
+.subckt nand14 a[13:0] out
+XprevAnd a[12:0] temp nand13
+Xinv temp temp0 inverter
+Xnand temp0 a13 out nand2
+.ends
+
+.subckt nand15 a[14:0] out
+XprevAnd a[13:0] temp nand14
+Xinv temp temp0 inverter
+Xnand temp0 a14 out nand2
+.ends
+
+.subckt nand16 a[15:0] out
+XprevAnd a[14:0] temp nand15
+Xinv temp temp0 inverter
+Xnand temp0 a15 out nand2
+.ends
+
+.subckt nand17 a[16:0] out
+XprevAnd a[15:0] temp nand16
+Xinv temp temp0 inverter
+Xnand temp0 a16 out nand2
+.ends
+
+.subckt nand18 a[17:0] out
+XprevAnd a[16:0] temp nand17
+Xinv temp temp0 inverter
+Xnand temp0 a17 out nand2
+.ends
+
+.subckt nand19 a[18:0] out
+XprevAnd a[17:0] temp nand18
+Xinv temp temp0 inverter
+Xnand temp0 a18 out nand2
+.ends
+
+.subckt nand20 a[19:0] out
+XprevAnd a[18:0] temp nand19
+Xinv temp temp0 inverter
+Xnand temp0 a19 out nand2
+.ends
+
+.subckt nand21 a[20:0] out
+XprevAnd a[19:0] temp nand20
+Xinv temp temp0 inverter
+Xnand temp0 a20 out nand2
+.ends
+
+.subckt nand22 a[21:0] out
+XprevAnd a[20:0] temp nand21
+Xinv temp temp0 inverter
+Xnand temp0 a21 out nand2
+.ends
+
+.subckt nand23 a[22:0] out
+XprevAnd a[21:0] temp nand22
+Xinv temp temp0 inverter
+Xnand temp0 a22 out nand2
+.ends
+
+.subckt nand24 a[23:0] out
+XprevAnd a[22:0] temp nand23
+Xinv temp temp0 inverter
+Xnand temp0 a23 out nand2
+.ends
+
+.subckt nand25 a[24:0] out
+XprevAnd a[23:0] temp nand24
+Xinv temp temp0 inverter
+Xnand temp0 a24 out nand2
+.ends
+
+.subckt nand26 a[25:0] out
+XprevAnd a[24:0] temp nand25
+Xinv temp temp0 inverter
+Xnand temp0 a25 out nand2
+.ends
+
+.subckt nand27 a[26:0] out
+XprevAnd a[25:0] temp nand26
+Xinv temp temp0 inverter
+Xnand temp0 a26 out nand2
+.ends
+
+.subckt nand28 a[27:0] out
+XprevAnd a[26:0] temp nand27
+Xinv temp temp0 inverter
+Xnand temp0 a27 out nand2
+.ends
+
+.subckt nand29 a[28:0] out
+XprevAnd a[27:0] temp nand28
+Xinv temp temp0 inverter
+Xnand temp0 a28 out nand2
+.ends
+
+.subckt nand30 a[29:0] out
+XprevAnd a[28:0] temp nand29
+Xinv temp temp0 inverter
+Xnand temp0 a29 out nand2
+.ends
+
+.subckt nand31 a[30:0] out
+XprevAnd a[29:0] temp nand30
+Xinv temp temp0 inverter
+Xnand temp0 a30 out nand2
+.ends
+
+.subckt nand32 a[31:0] out
+XprevAnd a[30:0] temp nand31
+Xinv temp temp0 inverter
+Xnand temp0 a31 out nand2
+.ends
+
+*/
+
+.subckt and5 a[4:0] out
+Xand0 a[3:0] temp and4
+Xand1 temp a4 out and2
+.ends
+
+.subckt and6 a[5:0] out
+Xand0 a[2:0] temp and3
+Xand1 a[5:3] temp1 and3
+Xand3 temp temp1 out and2
+.ends
+
+.subckt and7 a[6:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[6:4] temp1 and3
+Xand3 temp temp1 out and2
+.ends
+
+.subckt and8 a[7:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand3 temp temp1 out and2
+.ends
+
+.subckt and9 a[8:0] out
+Xand0 a[2:0] temp and3
+Xand1 a[5:3] temp1 and3
+Xand2 a[6:8] temp2 and3
+Xand3 temp temp1 temp2 out and3
+.ends
+
+.subckt and10 a[9:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[9:8] temp2 and2
+Xand3 temp temp1 temp2 out and3
+.ends
+
+.subckt and11 a[10:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[10:8] temp2 and3
+Xand3 temp temp1 temp2 out and3
+.ends
+
+.subckt and12 a[11:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 temp temp1 temp2 out and3
+.ends
+
+.subckt and13 a[12:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 temp temp1 temp2 a12 out and4
+.ends
+
+.subckt and14 a[13:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[13:12] temp3 and2
+Xand4 temp temp1 temp2 temp3 out and4
+.ends
+
+.subckt and15 a[14:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[14:12] temp3 and3
+Xand4 temp temp1 temp2 temp3 out and4
+.ends
+
+.subckt and16 a[15:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 out and4
+.ends
+
+.subckt and17 a[16:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 temp4 a16 out and2
+.ends
+
+.subckt and18 a[17:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 temp4 a[17:16] out and3
+.ends
+
+.subckt and19 a[18:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 temp4 a[18:16] out and4
+.ends
+
+.subckt and20 a[19:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 temp5 temp4 out and2
+.ends
+
+.subckt and21 a[20:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 temp5 temp4 a20 out and3
+.ends
+
+.subckt and22 a[21:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 temp5 temp4 a[21:20] out and4
+.ends
+
+.subckt and23 a[22:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[22:20] temp6 and3
+Xand7 temp6 temp5 temp4 out and3
+.ends
+
+.subckt and24 a[23:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 temp6 temp5 temp4 out and3
+.ends
+
+.subckt and25 a[24:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 temp6 temp5 temp4 a24 out and4
+.ends
+
+.subckt and26 a[25:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[25:24] temp7 and2
+Xand8 temp7 temp6 temp5 temp4 out and4
+.ends
+
+.subckt and27 a[26:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[26:24] temp7 and3
+Xand8 temp7 temp6 temp5 temp4 out and4
+.ends
+
+.subckt and28 a[27:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[27:24] temp7 and4
+Xand8 temp7 temp6 temp5 temp4 out and4
+.ends
+
+.subckt and29 a[28:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[27:24] temp7 and4
+Xand8 temp7 temp6 temp5 temp4 temp8 and4
+Xand9 temp8 a28 out and2
+.ends
+
+.subckt and30 a[29:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[27:24] temp7 and4
+Xand8 temp7 temp6 temp5 temp4 temp8 and4
+Xand9 temp8 a[29:28] out and3
+.ends
+
+.subckt and31 a[30:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[27:24] temp7 and4
+Xand8 temp7 temp6 temp5 temp4 temp8 and4
+Xand9 temp8 a[30:28] out and4
+.ends
+
+.subckt and32 a[31:0] out
+Xand0 a[3:0] temp and4
+Xand1 a[7:4] temp1 and4
+Xand2 a[11:8] temp2 and4
+Xand3 a[15:12] temp3 and4
+Xand4 temp temp1 temp2 temp3 temp4 and4
+Xand5 a[19:16] temp5 and4
+Xand6 a[23:20] temp6 and4
+Xand7 a[27:24] temp7 and4
+Xand8 temp7 temp6 temp5 temp4 temp8 and4
+Xand9 a[31:28] temp9 and4
+Xand10 temp9 temp8 out and2
+.ends
+
+.subckt or5 a[4:0] out
+Xor0 a[3:0] temp or4
+Xor1 temp a4 out or2
+.ends
+
+.subckt or6 a[5:0] out
+Xor0 a[2:0] temp or3
+Xor1 a[5:3] temp1 or3
+Xor3 temp temp1 out or2
+.ends
+
+.subckt or7 a[6:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[6:4] temp1 or3
+Xor3 temp temp1 out or2
+.ends
+
+.subckt or8 a[7:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor3 temp temp1 out or2
+.ends
+
+.subckt or9 a[8:0] out
+Xor0 a[2:0] temp or3
+Xor1 a[5:3] temp1 or3
+Xor2 a[6:8] temp2 or3
+Xor3 temp temp1 temp2 out or3
+.ends
+
+.subckt or10 a[9:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[9:8] temp2 or2
+Xor3 temp temp1 temp2 out or3
+.ends
+
+.subckt or11 a[10:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[10:8] temp2 or3
+Xor3 temp temp1 temp2 out or3
+.ends
+
+.subckt or12 a[11:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 temp temp1 temp2 out or3
+.ends
+
+.subckt or13 a[12:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 temp temp1 temp2 a12 out or4
+.ends
+
+.subckt or14 a[13:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[13:12] temp3 or2
+Xor4 temp temp1 temp2 temp3 out or4
+.ends
+
+.subckt or15 a[14:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[14:12] temp3 or3
+Xor4 temp temp1 temp2 temp3 out or4
+.ends
+
+.subckt or16 a[15:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 out or4
+.ends
+
+.subckt or17 a[16:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 temp4 a16 out or2
+.ends
+
+.subckt or18 a[17:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 temp4 a[17:16] out or3
+.ends
+
+.subckt or19 a[18:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 temp4 a[18:16] out or4
+.ends
+
+.subckt or20 a[19:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 temp5 temp4 out or2
+.ends
+
+.subckt or21 a[20:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 temp5 temp4 a20 out or3
+.ends
+
+.subckt or22 a[21:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 temp5 temp4 a[21:20] out or4
+.ends
+
+.subckt or23 a[22:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[22:20] temp6 or3
+Xor7 temp6 temp5 temp4 out or3
+.ends
+
+.subckt or24 a[23:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 temp6 temp5 temp4 out or3
+.ends
+
+.subckt or25 a[24:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 temp6 temp5 temp4 a24 out or4
+.ends
+
+.subckt or26 a[25:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[25:24] temp7 or2
+Xor8 temp7 temp6 temp5 temp4 out or4
+.ends
+
+.subckt or27 a[26:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[26:24] temp7 or3
+Xor8 temp7 temp6 temp5 temp4 out or4
+.ends
+
+.subckt or28 a[27:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[27:24] temp7 or4
+Xor8 temp7 temp6 temp5 temp4 out or4
+.ends
+
+.subckt or29 a[28:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[27:24] temp7 or4
+Xor8 temp7 temp6 temp5 temp4 temp8 or4
+Xor9 temp8 a28 out or2
+.ends
+
+.subckt or30 a[29:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[27:24] temp7 or4
+Xor8 temp7 temp6 temp5 temp4 temp8 or4
+Xor9 temp8 a[29:28] out or3
+.ends
+
+.subckt or31 a[30:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[27:24] temp7 or4
+Xor8 temp7 temp6 temp5 temp4 temp8 or4
+Xor9 temp8 a[30:28] out or4
+.ends
+
+.subckt or32 a[31:0] out
+Xor0 a[3:0] temp or4
+Xor1 a[7:4] temp1 or4
+Xor2 a[11:8] temp2 or4
+Xor3 a[15:12] temp3 or4
+Xor4 temp temp1 temp2 temp3 temp4 or4
+Xor5 a[19:16] temp5 or4
+Xor6 a[23:20] temp6 or4
+Xor7 a[27:24] temp7 or4
+Xor8 temp7 temp6 temp5 temp4 temp8 or4
+Xor9 a[31:28] temp9 or4
+Xor10 temp9 temp8 out or2
+.ends
 
 .subckt adder32 op0 A[31:0] B[31:0] S[31:0] z v n
 
