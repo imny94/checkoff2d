@@ -2,7 +2,7 @@
 .include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\stdcell.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\lab3adder.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
-.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_3ns.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_6ns.jsim"
 
 .subckt fasterXOR a b c
 X1 a b 1 nand2
@@ -35,8 +35,11 @@ XC2 c2 Gi G fasterOR
 .ends
 
 .subckt PGgenGreen P G Cin toAdd
-Xand P Cin forOr fasterAND
-Xor G forOr toAdd fasterOR
+//Xand P Cin forOr fasterAND
+//Xor G forOr toAdd fasterOR
+Xand P Cin forOr nand2
+Xinv G Ginv inverter
+Xor Ginv forOr toAdd nand2
 .ends
 
 
@@ -47,27 +50,37 @@ Xor G forOr toAdd fasterOR
 .subckt adder32 op0 A[31:0] B[31:0] S[31:0] z v n
 
 Xop0buffer op0 alufn0 buffer
-//Xabuffer A[31:0] ab[31:0] buffer
-//Xbbuffer B[31:0] bb[31:0] buffer
+Xabuffer A[31:0] ab[31:0] buffer
+Xbbuffer B[31:0] bb[31:0] buffer
 
-Xxor B[31:0] alufn0#32 XB[31:0] xor2
+Xxor bb[31:0] alufn0#32 XB[31:0] xor2
 
-//Xlvl1 ab[31:0] bb[31:0] P1[31:0] G1[31:0] PGgenRed
-Xlvl1 A[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
+Xlvl1 ab[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
+//Xlvl1bufferP P1unbuffered[31:0] P1[31:0] buffer
+//Xlvl1bufferG G1unbuffered[31:0] G1[31:0] buffer
+//Xlvl1 A[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
 
 Xlvl2yellow P1[31:1] G1[31:1] P1[30:0] G1[30:0] P2[31:1] G2[31:1] PGgenYellow
+//Xlvl2bufferP P2unbuffered[31:1] P2[31:1] buffer
+//Xlvl2bufferG G2unbuffered[31:1] G2[31:1] buffer
 Xlvl2green P1[0] G1[0] alufn0 P2unbuffered[0] PGgenGreen
 Xlvl2buffer P2unbuffered0 alufn1 buffer 
 
 Xlvl3yellow P2[31:3] G2[31:3] P2[29:1] G2[29:1] P3[31:3] G3[31:3] PGgenYellow
+//Xlvl3bufferP P3unbuffered[31:3] P3[31:3] buffer
+//Xlvl3bufferG G3unbuffered[31:3] G3[31:3] buffer
 Xlvl3green P2[2:1] G2[2:1] alufn[1:0] P3[1:0] PGgenGreen
 Xlvl3buffer P3[1:0] alufn[3:2] buffer
 
 Xlvl4yellow P3[31:7] G3[31:7] P3[27:3] G3[27:3] P4[31:7] G4[31:7] PGgenYellow
+//Xlvl4bufferP P4unbuffered[31:7] P4[31:7] buffer
+//Xlvl4bufferG G4unbuffered[31:7] G4[31:7] buffer
 Xlvl4green P3[6:3] G3[6:3] alufn[3:0] P4unbuffered[3:0] PGgenGreen
 Xlvl4buffer P4unbuffered[3:0] alufn[7:4] buffer
 
 Xlvl5yellow P4[31:15] G4[31:15] P4[23:7] G4[23:7] P5[31:15] G5[31:15] PGgenYellow
+//Xlvl5bufferP P5unbuffered[31:15] P5[31:15] buffer
+//Xlvl5bufferG G5unbuffered[31:15] G5[31:15] buffer
 Xlvl5green P4[14:7] G4[14:7] alufn[7:0] P5unbuffered[7:0] PGgenGreen
 Xlvl5buffer P5unbuffered[7:0] alufn[15:8] buffer
 
