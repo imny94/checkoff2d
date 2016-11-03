@@ -2,7 +2,7 @@
 .include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\stdcell.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\lab3adder.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
-.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_6ns.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_3ns.jsim"
 
 .subckt fasterXOR a b c
 X1 a b 1 nand2
@@ -117,4 +117,6 @@ Xor AndOne AndTwo Vout fasterOR
 
 .subckt N S31 Nout
 .connect S31 Nout
+//XNbuffer S31 Nout buffer 
+//Above used to get netlist
 .ends
