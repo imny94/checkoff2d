@@ -1,0 +1,17 @@
+def nand1(arg, arg2):
+	print "%s:=NOT(AND(%s));" % (arg2, arg) + "\n"
+
+def nor4(arg, arg2, arg3, arg4, arg5):
+	print "%s:=NOT(OR(%s,%s,%s,%s));" % (arg5, arg, arg2, arg3, arg4) + "/n"
+
+def nor2(arg, arg2, agr3):
+	print "%s:=NOT(OR(%s,%s));' % (arg3, arg, arg2) + "\n"
+
+def and1(arg, arg2):
+	print "%s:=AND(%s);" % (arg2, arg) + "\n"
+
+def nand2(arg, arg2, arg3):
+	print "%s:=NOT(AND(%s,%s));" % (arg3, arg, arg2) + "\n"
+
+def xor2(arg, arg2, arg3):
+	print "%s:=ODD(%s,%s);" % (arg3, arg, agr2) + "\n"
