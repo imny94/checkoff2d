@@ -2,36 +2,73 @@
 .include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\stdcell.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\lab3adder.jsim"
 //.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_100ns.jsim"
-.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_3ns.jsim"
+.include "D:\Backup\SUTD\ISTD\Computer Structures\50.002 Jsim\50002\checkoff2d\2dcheckoff_2p3ns.jsim"
 
 .subckt fasterXOR a b c
+
+Xbuffa a abuff buffer
+Xbuffb b bbuff buffer
+Xinva abuff ainv inverter
+Xinvb bbuff binv inverter
+Xxor1 abuff binv 1 nand2
+Xxor2 bbuff ainv 2 nand2
+Xfinal 1 2 c nand2
+
+/*
 X1 a b 1 nand2
 X2 a 1 3 nand2
 X3 b 1 2 nand2
 X4 2 3 c nand2
+*/
 .ends
 
 .subckt fasterAND a b c
-XAprime A Ap inverter
-XBprime B Bp inverter
-Xout Ap Bp c nor2
+//XAprime A Ap inverter
+//XBprime B Bp inverter
+//Xout Ap Bp c nor2
+Xnand a b 1 nand2
+Xinv 1 c inverter
 .ends
 
 .subckt fasterOR a b c
-X1 a a 1 nand2
-X2 b b 2 nand2
+X1 a 1 inverter
+X2 b 2 inverter
 X3 1 2 c nand2
 .ends
 
 .subckt PGgenRed A B P G
+/*
 Xand A B G fasterAND
 Xxor A B P fasterXOR
+*/
+
+//Xbuffa A abuff buffer
+//Xbuffb B bbuff buffer
+Xinva A ainv inverter
+Xinvb B binv inverter
+Xand ainv binv G nor2
+Xxor1 A binv 1 nand2
+Xxor2 B ainv 2 nand2
+Xfinal 1 2 P nand2
+
+/*
+XAinv A Ap inverter
+XBinv B Bp inverter
+XAnd Ap Bp G nor2
+XGinv G Ginv inverter
+XP1 A Ginv 3 nand2
+XP2 B Ginv 4 nand2
+XP3 3 4 P nand2
+*/
 .ends
 
 .subckt PGgenYellow Pi Gi Pp Gp P G 
 XC0 Pi Pp P fasterAND
-XC1 Pi Gp c2 fasterAND
-XC2 c2 Gi G fasterOR
+//XC1 Pi Gp c2 fasterAND
+//XC2 c2 Gi G fasterOR
+XC3 Pi Gp C2 nand2
+XC4 Gi GiP inverter
+XC5 GiP C2 G nand2
 .ends
 
 .subckt PGgenGreen P G Cin toAdd
@@ -50,12 +87,12 @@ Xor Ginv forOr toAdd nand2
 .subckt adder32 op0 A[31:0] B[31:0] S[31:0] z v n
 
 Xop0buffer op0 alufn0 buffer
-Xabuffer A[31:0] ab[31:0] buffer
-Xbbuffer B[31:0] bb[31:0] buffer
+//Xabuffer A[31:0] ab[31:0] buffer
+//Xbbuffer B[31:0] bb[31:0] buffer
 
-Xxor bb[31:0] alufn0#32 XB[31:0] xor2
+Xxor B[31:0] alufn0#32 XB[31:0] xor2
 
-Xlvl1 ab[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
+Xlvl1 A[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
 //Xlvl1bufferP P1unbuffered[31:0] P1[31:0] buffer
 //Xlvl1bufferG G1unbuffered[31:0] G1[31:0] buffer
 //Xlvl1 A[31:0] XB[31:0] P1[31:0] G1[31:0] PGgenRed
@@ -69,20 +106,20 @@ Xlvl2buffer P2unbuffered0 alufn1 buffer
 Xlvl3yellow P2[31:3] G2[31:3] P2[29:1] G2[29:1] P3[31:3] G3[31:3] PGgenYellow
 //Xlvl3bufferP P3unbuffered[31:3] P3[31:3] buffer
 //Xlvl3bufferG G3unbuffered[31:3] G3[31:3] buffer
-Xlvl3green P2[2:1] G2[2:1] alufn[1:0] P3[1:0] PGgenGreen
-Xlvl3buffer P3[1:0] alufn[3:2] buffer
+Xlvl3green P2[2:1] G2[2:1] alufn[1:0] alufn[3:2] PGgenGreen//P3[1:0] PGgenGreen
+//Xlvl3buffer P3[1:0] alufn[3:2] buffer
 
 Xlvl4yellow P3[31:7] G3[31:7] P3[27:3] G3[27:3] P4[31:7] G4[31:7] PGgenYellow
 //Xlvl4bufferP P4unbuffered[31:7] P4[31:7] buffer
 //Xlvl4bufferG G4unbuffered[31:7] G4[31:7] buffer
-Xlvl4green P3[6:3] G3[6:3] alufn[3:0] P4unbuffered[3:0] PGgenGreen
-Xlvl4buffer P4unbuffered[3:0] alufn[7:4] buffer
+Xlvl4green P3[6:3] G3[6:3] alufn[3:0] alufn[7:4] PGgenGreen//P4unbuffered[3:0] PGgenGreen
+//Xlvl4buffer P4unbuffered[3:0] alufn[7:4] buffer
 
 Xlvl5yellow P4[31:15] G4[31:15] P4[23:7] G4[23:7] P5[31:15] G5[31:15] PGgenYellow
 //Xlvl5bufferP P5unbuffered[31:15] P5[31:15] buffer
 //Xlvl5bufferG G5unbuffered[31:15] G5[31:15] buffer
-Xlvl5green P4[14:7] G4[14:7] alufn[7:0] P5unbuffered[7:0] PGgenGreen
-Xlvl5buffer P5unbuffered[7:0] alufn[15:8] buffer
+Xlvl5green P4[14:7] G4[14:7] alufn[7:0] alufn[15:8] PGgenGreen//P5unbuffered[7:0] PGgenGreen
+//Xlvl5buffer P5unbuffered[7:0] alufn[15:8] buffer
 
 Xlvl6yellow P531 G531 P515 G515 P631 G631 PGgenYellow
 Xlvl6green P5[30:15] G5[30:15] alufn[15:0] alufn[31:16] PGgenGreen
@@ -98,10 +135,21 @@ Xn S31 n N
 .ends
 
 .subckt Z S[31:0] Zout
+/*
 Xnor S[3:0] S[7:4] S[11:8] S[15:12] S[19:16] S[23:20] S[27:24] S[31:28] z[7:0] nor4
 Xinv z[7:0] zp[7:0] inverter
 Xandddd zp[3:0] zp[7:4] zA[1:0] nor4
 Xand zA0 zA1 Zout fasterAND  
+*/
+Xnor S[31:16] S[15:0] temp[15:0] nor2
+Xand temp[15:12] temp[11:8] temp[7:4] temp[3:0] toZ[3:0] fasterand4
+Xfinal toZ[3:0] Zout fasterand4
+.ends
+
+.subckt fasterand4 a b c d o
+Xnand1 a b temp0 nand2
+Xnand2 c d temp1 nand2
+Xnor2 temp0 temp1 o nor2
 .ends
 
 .subckt V A31 XB31 S31 Vout
@@ -120,3 +168,5 @@ Xor AndOne AndTwo Vout fasterOR
 //XNbuffer S31 Nout buffer 
 //Above used to get netlist
 .ends
+
+//Xadder32 op0 A[31:0] B[31:0] S[31:0] z v n adder32
